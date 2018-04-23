@@ -1,0 +1,23 @@
+<h3>Продажи авиабилетов</h3>
+<fusioncharts
+        width="1200"
+        height="600"
+        type="column2d"
+        datasource="{{ $ctrl.ticketSalesObservationsChartData }}"
+></fusioncharts>
+
+<div class="clearfix" ng-if="!$ctrl.ticketSalesForecast">
+    <div class="buttons-block">
+        <a class="btn btn-success btn-md" ng-click="$ctrl.makeForecast()">Рассчитать прогноз</a>
+    </div>
+</div>
+
+<div ng-if="$ctrl.ticketSalesForecast">
+    <h3>Прогноз продажи авиабилетов</h3>
+    <fusioncharts
+            width="1200"
+            height="600"
+            type="column2d"
+            datasource="{{ $ctrl.ticketSalesForecastChartData }}"
+    ></fusioncharts>
+</div>
