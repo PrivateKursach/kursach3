@@ -1,24 +1,22 @@
 package by.bsuir.sheverda.dao.impl;
 
 import by.bsuir.sheverda.dao.TicketSalesObservationDAO;
-import by.bsuir.sheverda.model.TicketSalesObservation;
-import org.springframework.stereotype.Component;
+import by.bsuir.sheverda.entity.TicketSales;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
-import java.time.OffsetDateTime;
-import java.util.ArrayList;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.List;
 
-@Component
+@Repository
 public class TicketSalesObservationDAOImpl implements TicketSalesObservationDAO {
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
     @Override
-    public List<TicketSalesObservation> getObservations() {
-        List<TicketSalesObservation> observations = new ArrayList<>();
-        OffsetDateTime startDate = OffsetDateTime.now().minusMonths(3);
-        for (int i = 0; i < 100; i++) {
-            OffsetDateTime observationDate = startDate.plusDays(i);
-            observations.add(new TicketSalesObservation(observationDate, (double) i));
-        }
-        return observations;
+    public List<TicketSales> getObservations() {
+        return entityManager.createQuery("select ts from TicketSales ts", TicketSales.class).getResultList();
     }
 }

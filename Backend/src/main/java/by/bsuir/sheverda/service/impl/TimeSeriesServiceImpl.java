@@ -24,6 +24,6 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
             observationDates.add(observation.getObservationDate());
             observationValues[i] = observation.getNumberOfTickets();
         }
-        return TimeSeries.from(TimePeriod.oneDay(), observationDates, observationValues);
+        return TimeSeries.from(TimePeriod.oneMonth(), observationDates, observationValues);
     }
 }

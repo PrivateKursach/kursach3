@@ -20,7 +20,7 @@ public class ForecastServiceImpl implements ForecastService {
     @Override
     public TimeSeries getForecast(List<TicketSalesObservation> observations) {
         Arima arimaModel = arimaModelService.getArimaModel(observations);
-        Forecast forecast = arimaModel.forecast(100, 0.001);
+        Forecast forecast = arimaModel.forecast(24, 0.001);
         return forecast.pointEstimates();
     }
 }
