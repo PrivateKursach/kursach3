@@ -1,0 +1,81 @@
+html, body {
+    margin:0;
+    padding:0;
+    height: 100%;
+}
+* {
+    word-wrap: break-word;
+}
+.wrapper {
+    position:relative;
+    min-height: 100%;
+}
+header {
+    padding:10px;
+}
+.container {
+    /* Height of the footer */
+    padding: 10px 10px 50px;
+}
+main {
+    padding-bottom: 50px;
+}
+.clearfix::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.buttons-block {
+    float: right;
+}
+.btn-md {
+    margin-bottom: 10px;
+}
+.dropdown-menu li {
+    cursor: pointer;
+}
+.glyphicon-remove {
+    cursor: pointer;
+}
+.navbar-right li {
+    margin: 0;
+    cursor: pointer;
+}
+.navbar-right li:hover {
+    color: #555;
+    background-color: #e7e7e7;
+}
+.navbar-right li button {
+    color: #777;
+    padding: 10px 15px;
+    line-height: 20px;
+    position: relative;
+    display: block;
+    text-decoration: none;
+}
+.navbar-right li .active{
+    color: #555;
+    background-color: #e7e7e7;
+}
+.pagination {
+    margin: 10px 0;
+}
+.tag {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: inline-block;
+    padding: 4px 8px;
+}
+footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    background-color: #f8f8f8;
+    border-radius: 4px;
+    height: 50px;
+    border: 1px solid #e7e7e7;
+}
+footer p{
+    margin-top: 10px;
+}

@@ -1,0 +1,10 @@
+{
+  "name": "ticket-sales",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-ui-bootstrap": "2.5.0",
+    "angular-ui-router": "1.0.0-rc.1",
+    "fusioncharts": "3.12.2"
+  }
+}
