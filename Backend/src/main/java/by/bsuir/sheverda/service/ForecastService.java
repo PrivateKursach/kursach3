@@ -6,5 +6,5 @@ import com.github.signaflo.timeseries.TimeSeries;
 import java.util.List;
 
 public interface ForecastService {
-    TimeSeries getForecast(List<TicketSalesObservation> observations);
+    List<TicketSalesObservation> getForecast(List<TicketSalesObservation> observations);
 }

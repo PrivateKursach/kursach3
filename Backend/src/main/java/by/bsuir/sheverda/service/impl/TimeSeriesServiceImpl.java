@@ -26,4 +26,19 @@ public class TimeSeriesServiceImpl implements TimeSeriesService {
         }
         return TimeSeries.from(TimePeriod.oneMonth(), observationDates, observationValues);
     }
+
+    @Override
+    public List<TicketSalesObservation> getObservations(TimeSeries timeSeries) {
+        List<OffsetDateTime> observationDates = timeSeries.observationTimes();
+        double[] observationValues = timeSeries.asArray();
+        List<TicketSalesObservation> ticketSalesObservations = new ArrayList<>(observationDates.size());
+        Iterator<OffsetDateTime> observationDatesIterator = observationDates.iterator();
+        for (int i = 0; observationDatesIterator.hasNext(); i++) {
+            ticketSalesObservations.add(new TicketSalesObservation(
+                    observationDatesIterator.next(),
+                    observationValues[i]
+            ));
+        }
+        return ticketSalesObservations;
+    }
 }
