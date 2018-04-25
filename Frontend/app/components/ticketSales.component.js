@@ -17,7 +17,7 @@ function TicketSalesController(ticketSalesService, $filter) {
     };
     $ctrl.ticketSalesForecastChartData = {
         chart: {
-            caption: "Прогноз прожади авиабилетов",
+            caption: "Прогноз продажи авиабилетов",
             subCaption: "с 2017 по 2018 год",
             numberPrefix: "",
             theme: "ocean"
@@ -31,8 +31,8 @@ function TicketSalesController(ticketSalesService, $filter) {
             var ticketSalesObservationsChartData = [];
             response.forEach(function (item, i, arr) {
                 ticketSalesObservationsChartData.push({
-                    label : $filter('date')(item.observationDate, 'medium'),
-                    value : $filter('number')(item.numberOfTickets, 0)
+                    label : $filter('date')(item.observationDate, 'MMM, y'),
+                    value : Number.parseInt(item.numberOfTickets)
                 });
             });
             $ctrl.ticketSalesObservationsChartData.data = ticketSalesObservationsChartData;
@@ -45,8 +45,8 @@ function TicketSalesController(ticketSalesService, $filter) {
             var ticketSalesForecastChartData = [];
             response.forEach(function (item, i, arr) {
                 ticketSalesForecastChartData.push({
-                    label : $filter('date')(item.observationDate, 'medium'),
-                    value : $filter('number')(item.numberOfTickets, 0)
+                    label : $filter('date')(item.observationDate, 'MMM, y'),
+                    value : Number.parseInt(item.numberOfTickets)
                 });
             });
             $ctrl.ticketSalesForecastChartData.data = ticketSalesForecastChartData;
