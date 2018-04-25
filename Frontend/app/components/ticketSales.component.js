@@ -3,7 +3,7 @@ var ticketSalesComponent = {
     controller : TicketSalesController
 };
 
-function TicketSalesController(ticketSalesService) {
+function TicketSalesController(ticketSalesService, $filter) {
     var $ctrl = this;
 
     $ctrl.ticketSalesObservationsChartData = {
@@ -31,8 +31,8 @@ function TicketSalesController(ticketSalesService) {
             var ticketSalesObservationsChartData = [];
             response.forEach(function (item, i, arr) {
                 ticketSalesObservationsChartData.push({
-                    label : item.observationDate,
-                    value : item.numberOfTickets
+                    label : $filter('date')(item.observationDate, 'medium'),
+                    value : $filter('number')(item.numberOfTickets, 0)
                 });
             });
             $ctrl.ticketSalesObservationsChartData.data = ticketSalesObservationsChartData;
@@ -45,8 +45,8 @@ function TicketSalesController(ticketSalesService) {
             var ticketSalesForecastChartData = [];
             response.forEach(function (item, i, arr) {
                 ticketSalesForecastChartData.push({
-                    label : item.observationDate,
-                    value : item.numberOfTickets
+                    label : $filter('date')(item.observationDate, 'medium'),
+                    value : $filter('number')(item.numberOfTickets, 0)
                 });
             });
             $ctrl.ticketSalesForecastChartData.data = ticketSalesForecastChartData;

@@ -20,7 +20,7 @@ public class ArimaModelServiceImpl implements ArimaModelService {
     @Override
     public Arima getArimaModel(List<TicketSalesObservation> observations) {
         TimeSeries timeSeries = timeSeriesService.getTimeSeries(observations);
-        ArimaOrder arimaOrder = ArimaOrder.order(1, 1, 0);
+        ArimaOrder arimaOrder = ArimaOrder.order(10, 1, 0);
         return Arima.model(timeSeries, arimaOrder);
     }
 }

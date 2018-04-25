@@ -7,5 +7,12 @@ function routing($stateProvider, $urlRouterProvider) {
         component: "ticketSales"
     };
 
+    var ticketSalesState = {
+        name: "ticketSales",
+        url: "/ticket-sales",
+        component: "ticketSales"
+    };
+
     $stateProvider.state(welcomeState);
+    $stateProvider.state(ticketSalesState);
 }
